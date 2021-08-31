@@ -21,3 +21,9 @@ h6{
 .hidden{
     display: none;
 }
+
+.date{
+    float: right;
+    font-size: 12px;
+    width: 50%;
+}

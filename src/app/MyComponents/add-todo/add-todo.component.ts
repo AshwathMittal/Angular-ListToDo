@@ -15,11 +15,13 @@ export class AddTodoComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
+
     const todo = {
       sno: 8,
       title: this.title,
       desc: this.desc,
-      active: true
+      active: true,
+     dateOnAdded: new Date().toDateString() + ", "  + new Date().getHours().toLocaleString() + ":" + new Date().getMinutes().toLocaleString()
     }
     this.todoAdd.emit(todo)
   }

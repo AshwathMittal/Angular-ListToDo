@@ -19,7 +19,8 @@ export class TodosComponent implements OnInit {
       sno: 1,
       title: "Welcome!",
       desc: "Add A Todo",
-      active: true
+      active: true,
+      dateOnAdded: ":)"
       }
         ]
     }
