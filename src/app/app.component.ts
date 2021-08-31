@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'To Do List';
-  userName = "Ashwath Mittal"
+  todayNumber:string = new Date().toDateString();
   constructor(){
     
 }
