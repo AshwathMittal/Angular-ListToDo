@@ -1,0 +1,13 @@
+<div class="my-3">
+        
+    <h4 [ngClass]="{'strike': !todo.active}">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" class="checkbox-custom" (click)="onCheckBox(todo)" [checked]="!todo.active">
+        
+        {{todo.title}}</h4>
+    <h6 [ngClass]="{'hidden': !todo.active}"> <b>Description: </b>
+        {{todo.desc}} </h6>
+            
+        <button class="btn btn-sm btn-dark" (click)="onClick(todo)">Delete</button>
+    <br>
+    <br>
+</div>

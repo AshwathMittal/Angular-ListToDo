@@ -1,0 +1,23 @@
+/* div{
+    max-width: 50%;
+} */
+
+.checkbox-custom{
+    height: 64;
+    width: 64;
+}
+
+button{
+    margin-top: 15px;
+}
+
+h6{
+    margin-left: 20px;
+}
+
+.strike{
+    text-decoration: line-through;
+}
+.hidden{
+    display: none;
+}
