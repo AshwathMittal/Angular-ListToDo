@@ -9,7 +9,6 @@ import { Todo } from 'src/app/Todo';
 })
 export class TodoItemComponent implements OnInit {
   todayNumber:string = new Date().toDateString();
-  name = "You List Below"
   @Input() todo: Todo;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter(); 
   @Output() todoCheckbox: EventEmitter<Todo> = new EventEmitter(); 

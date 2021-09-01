@@ -21,6 +21,7 @@ export class AddTodoComponent implements OnInit {
       title: this.title,
       desc: this.desc,
       active: true,
+      date: "(Not yet completed)",
      dateOnAdded: new Date().toDateString() + ", "  + new Date().getHours().toLocaleString() + ":" + new Date().getMinutes().toLocaleString()
     }
     this.todoAdd.emit(todo)

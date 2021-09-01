@@ -19,8 +19,9 @@ export class TodosComponent implements OnInit {
       sno: 1,
       title: "Welcome!",
       desc: "Add A Todo",
+      dateOnAdded: "",
+      date: "",
       active: true,
-      dateOnAdded: ":)"
       }
         ]
     }
@@ -79,6 +80,13 @@ export class TodosComponent implements OnInit {
     console.log(index);
     
     this.todos[index].active = !this.todos[index].active;
+    if(this.todos[index].active == false){
+    this.todos[index].date = "Completed On: " + new Date().toDateString() + ", "  + new Date().getHours().toLocaleString() + ":" + new Date().getMinutes().toLocaleString()
+    }
+    else{
+    this.todos[index].date= "(Not yet completed)"
+
+    }
     localStorage.setItem("todos", JSON.stringify(this.todos))
 
     if(this.todos.length == 0){
