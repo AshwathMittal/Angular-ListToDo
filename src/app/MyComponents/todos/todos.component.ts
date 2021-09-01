@@ -14,20 +14,21 @@ export class TodosComponent implements OnInit {
 
     if(this.localItem == null){
       
-    this.todos = [
-      {
-      sno: 1,
-      title: "Welcome!",
-      desc: "Add A Todo",
-      dateOnAdded: "",
-      date: "",
-      active: true,
+      this.todos = [
+        {
+        sno: 1,
+        title: "Welcome!",
+        desc: "Add A Todo",
+        dateOnAdded: "",
+        date: "",
+        active: true,
+        }
+          ]
       }
-        ]
-    }
-    else{
-      this.todos = JSON.parse(this.localItem)
-    }
+      else{
+        this.todos = JSON.parse(this.localItem)
+      }
+
       this.headingHere = ""
 
     
@@ -38,8 +39,6 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {
   }
   deleteTodo(todo: Todo){
-
-    console.log(this.todos.length);
     const index = this.todos.indexOf(todo)
     console.log(index);
     
@@ -55,9 +54,9 @@ export class TodosComponent implements OnInit {
 
     }
     console.log(this.todos.length);
-    
   }
   addTodo(todo: Todo){
+
     console.log(todo);
    
     this.todos.push(todo)
@@ -73,6 +72,7 @@ export class TodosComponent implements OnInit {
     }
     console.log(this.todos.length);
     
+
   
   }
   toggleTodo(todo: Todo){
@@ -81,13 +81,14 @@ export class TodosComponent implements OnInit {
     
     this.todos[index].active = !this.todos[index].active;
     if(this.todos[index].active == false){
-    this.todos[index].date = "Completed On: " + new Date().toDateString() + ", "  + new Date().getHours().toLocaleString() + ":" + new Date().getMinutes().toLocaleString()
+    this.todos[index].date =  new Date().toDateString() + ", "  + new Date().getHours().toLocaleString() + ":" + new Date().getMinutes().toLocaleString()
     }
     else{
-    this.todos[index].date= "(Not yet completed)"
+    this.todos[index].date= "Yet To Complete"
 
     }
     localStorage.setItem("todos", JSON.stringify(this.todos))
+
 
     if(this.todos.length == 0){
       this.headingHere = ""
