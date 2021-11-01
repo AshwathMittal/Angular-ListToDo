@@ -1,0 +1,9 @@
+.end{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+/* TOP RIGHT BOTTOM LEFT */

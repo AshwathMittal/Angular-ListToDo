@@ -7,6 +7,7 @@ import { Todo } from "../../Todo"
 })
 export class TodosComponent implements OnInit {
   headingHere: string;
+  fileToUpload: File | null = null;
   localItem: string | null ;
   todos:Todo[];
   constructor() {
@@ -38,6 +39,39 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+//   handleFileInput(event: any) {
+//     this.fileToUpload = event.target.files[0];  
+//     console.log(this.fileToUpload);
+//     // this.fileToUpload = files.item(0);
+//     const data = JSON.stringify(this.fileToUpload)
+//     const blob = new Blob([data], {type: "appliction/json"})
+//     let fileReader = new FileReader();
+//     fileReader.onload = (e) => {
+//       console.log(fileReader.result as string);
+    
+//     }
+//     console.log(fileReader.readAsText(blob));
+
+// }
+changeListener($event: any) : void {
+  this.readThis($event.target);
+}
+
+readThis(inputValue: any) : void {
+  var file:File = inputValue.files[0]; 
+  var myReader:FileReader = new FileReader();
+
+  myReader.onloadend = function(e){
+    let data = myReader.result as string
+    let todos = JSON.parse(data)
+    console.log(todos);
+    localStorage.setItem("todos", data)
+    window.location.reload();
+  }
+
+  myReader.readAsText(file);
+}
   deleteTodo(todo: Todo){
     const index = this.todos.indexOf(todo)
     console.log(index);
@@ -100,6 +134,17 @@ export class TodosComponent implements OnInit {
     }
     console.log(this.todos.length);
     
+  }
+  exportTodos(){
+    console.log("Exported");
+    const data = JSON.stringify(this.todos)
+    const blob = new Blob([data], {type: "text/json"})
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = "todos.json"
+    link.click()
+    link.remove()
   }
 
 }
